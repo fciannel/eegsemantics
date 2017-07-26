@@ -1,4 +1,4 @@
-OB# eegsemantics
+# eegsemantics
 You need to copy the directory coming from the eeg system into the DataFiles.
 
 This is for instance how the directory DataFiles looks like
