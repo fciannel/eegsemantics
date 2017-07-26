@@ -3,6 +3,7 @@ You need to copy the directory coming from the eeg system into the DataFiles.
 
 This is for instance how the directory DataFiles looks like
 
+```
 ======================================================================================================================================
 data  data_raw
 
@@ -23,5 +24,6 @@ data.mat  data_processed_diff.mat
 061001201.ebs_19_33_0_impedance_results.csv  061001201_Diff_Class.csv    061001201_Ref_Raw.csv
 061001201.edf                                061001201_Diff_Raw.csv      061001201_ZScore_PSD.csv
 ======================================================================================================================================
+```
 
 To create the data files data.mat and data_processed_diff.mat you need to run the file run_music_exp.m
