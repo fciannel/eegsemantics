@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <script type="text/javascript" src="{% static "eegbrowse/scripts/jquery-3.2.1.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'eegbrowse/css/style.css' %}" />
+</head>
+
+<body>
+
+
+{#{% with 'eegbrowse/images/'|add:concept|add:'.gif' as image_static %}#}
+  <p class="center" style="font-size: 200%;">CAT</p>
+{#{% endwith %}#}
+
+{#<div id="parent">#}
+{#    <div id="child">Content here</div>#}
+{#</div>#}
+
+{#<img class="center" src="{% static "eegbrowse/images/{concept}.gif" %}" id="imageid"/>#}
+
+{#The mode is {{mode}} and the concept is {{ concept }} and the iteration is {{ iteration  }}#}
+
+<form id="next_form" method="post" action="/eegbrowse/image/">
+    {% csrf_token %}
+    <div style="position: absolute; left: 50%; bottom: 50%;">
+        <INPUT TYPE="SUBMIT" VALUE=" Next " ID="submit_button" disabled="disabled" style="display:none;">
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+        window.setTimeout(setDisabled, 3000);
+    }
+
+    function setDisabled() {
+        document.getElementById('submit_button').disabled = false;
+        $("#submit_button").show();
+        $("#imageid").hide();
+    }
+
+</script>
+
+</body>
+</html>
+
+

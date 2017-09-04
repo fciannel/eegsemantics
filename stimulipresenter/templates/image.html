@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <script type="text/javascript" src="{% static "eegbrowse/scripts/jquery-3.2.1.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'eegbrowse/css/style.css' %}" />
+</head>
+
+<body>
+
+<!The mode is {{mode}} and the concept is {{ concept }} and the iteration is {{ iteration  }}>
+
+{% if mode == "image" %}
+
+{% with 'eegbrowse/images/'|add:concept|add:'.gif' as image_static %}
+  <img class="center" src="{% static image_static %}" id="elementid"/>
+{% endwith %}
+
+{% elif mode == "text" %}
+    <p class="center" style="font-size: 200% ;" id="elementid">{{ concept }}</p>
+
+{% else %}
+    {% with 'eegbrowse/audio/'|add:concept|add:'.wav' as audio_static %}
+    <audio preload="auto" autoplay src={% static audio_static %} type="audio/wav"> </audio>
+    {% endwith %}
+{% endif %}
+{#<img class="center" src="{% static "eegbrowse/images/{concept}.gif" %}" id="imageid"/>#}
+
+
+
+<form id="next_form" method="post" action="/eegbrowse/image/">
+    {% csrf_token %}
+    <div style="position: absolute; bottom: 0; right: 0;">
+        <INPUT TYPE="SUBMIT" VALUE=" Next " ID="submit_button" disabled="disabled" style="display:none;height=300px;width=300px;">
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+        window.setTimeout(setDisabled, 3000);
+    }
+
+    function setDisabled() {
+        document.getElementById('submit_button').disabled = false;
+        $("#submit_button").show();
+        $("#elementid").hide();
+    }
+
+</script>
+
+</body>
+</html>
+
+

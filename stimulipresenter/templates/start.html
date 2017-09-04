@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'eegbrowse/css/style.css' %}" />
+</head>
+
+<body>
+
+<form id="start_form" method="post" action="/eegbrowse/image/">
+    {% csrf_token %}
+    <div style="position: absolute; left: 50%; bottom: 50%; ">
+        <INPUT TYPE="SUBMIT" VALUE=" Start New Experiment " ID="submit_button">
+    </div>
+</form>
+
+</body>
+</html>
+
+
