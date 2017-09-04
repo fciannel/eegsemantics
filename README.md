@@ -29,3 +29,9 @@ data.mat  data_processed_diff.mat
 To create the data files data.mat and data_processed_diff.mat you need to run the file run_music_exp.m.
 
 We are not publishing the edf files for privacy reasons.
+
+
+
+To run the stimuli presenter you need the django framework to be installed in your python, then:
+
+python manage.py runserver
