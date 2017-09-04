@@ -35,3 +35,7 @@ We are not publishing the edf files for privacy reasons.
 To run the stimuli presenter you need the django framework to be installed in your python, then:
 
 python manage.py runserver
+
+Then go to a browser and run this:
+
+http://localhost:8000/eegbrowse/start/
